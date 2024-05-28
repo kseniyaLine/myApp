@@ -1,6 +1,14 @@
 {
   "expo": {
     "name": "MyAppClipDemo",
+    "plugins": [
+      [
+        "react-native-app-clip",
+        {
+          "name": "My App Clip"
+        }
+      ]
+    ],
     "slug": "MyAppClipDemo",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -12,16 +20,44 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "y"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.myfooddelivery.appclip"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "MyAppClipDemoClip",
+                  "bundleIdentifier": "undefined.Clip",
+                  "entitlements": {
+                    "com.apple.developer.parent-application-identifiers": [
+                      "$(AppIdentifierPrefix)undefined"
+                    ],
+                    "com.apple.developer.on-demand-install-capable": true,
+                    "com.apple.developer.applesignin": [
+                      "Default"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "projectId": "1cea637e-10fb-4d5a-b21c-9185e6a4001d"
+      }
     }
   }
 }
