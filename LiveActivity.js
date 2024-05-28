@@ -1,19 +1,29 @@
 import React, { useEffect } from 'react';
-import { startLiveActivity, stopLiveActivity } from 'react-native-live-activity';
+import liveActivity from 'react-native-live-activity';
+
+type LiveActivityParams = {
+  status: string;
+  driverName: string;
+  expectedDeliveryTime: string;
+}
+
 
 const LiveActivityComponent = () => {
+ const liveActivity = new LiveActivity<LiveActivityParams>();
   useEffect(() => {
-    const activityId = startLiveActivity({
+    const activityId = await liveActivity.startLiveActivity({
       title: 'Hello World',
       message: 'This is a live activity notification!',
     });
 
     return () => {
-      stopLiveActivity(activityId);
+      await liveActivity.stopLiveActivity(activityId);
     };
   }, []);
 
   return null;
+
+
 };
 
 export default LiveActivityComponent;
