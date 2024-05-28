@@ -1,11 +1,6 @@
 import React, { useEffect } from 'react';
 import liveActivity from 'react-native-live-activity';
-
-type LiveActivityParams = {
-  title: string,
-  message: string,
-}
-
+import { LiveActivityParams } from "./types/index";
 
 const LiveActivityComponent = () => {
  const liveActivity = new LiveActivity<LiveActivityParams>();
