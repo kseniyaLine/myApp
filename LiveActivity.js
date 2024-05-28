@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import liveActivity from 'react-native-live-activity';
 
 type LiveActivityParams = {
-  status: string;
-  driverName: string;
-  expectedDeliveryTime: string;
+  title: string,
+  message: string,
 }
 
 
